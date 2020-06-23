@@ -14,6 +14,9 @@ has_one_attached :avatar
       user = User.where(email: auth.info.email).first
 
       if user
+        if !user.provider
+          user.update(uid: auth.uid, provider: auth.provider, image: auth.info.image)
+        end
         return user
       else
           where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
