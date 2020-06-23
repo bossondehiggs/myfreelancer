@@ -1,0 +1,14 @@
+class Gig < ApplicationRecord
+  belongs_to :user
+  belongs_to :category
+
+  has_many :pricings
+  has_many_attached :photos
+  has_rich_text :description
+
+
+
+  accepts_nested_attributes_for :princings
+
+  validates :title, presence: { message: 'no puede estar en blanco' }
+end
