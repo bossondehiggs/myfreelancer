@@ -41,11 +41,6 @@
                           </div>
 
                           <div class="field">
-                            <%= f.label :contraseña_actual, class: "label"  %> <i>(necesitamos tu constraseña actual para confirmar los cambios)</i>
-                            <%= f.password_field :current_password, autocomplete: "current-password", class: "input"  %>
-                          </div>
-
-                          <div class="field">
                             <%= f.submit "Actualizar", class: "button is-danger is-fullwidth" %>
                           </div>
                         <% end %>
