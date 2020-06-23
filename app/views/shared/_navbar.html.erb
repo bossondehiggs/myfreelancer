@@ -61,6 +61,50 @@
 
 </nav>
 
+<nav class="navbar has-shadow">
+  <div class="container">
+    <div class="navbar">
+        <%= link_to 'Mi panel', dashboard_path, class: "navbar-item" %>
+          <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Ventas</a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">Crear nueva colaboración</a>
+                 </div>
+              </div>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Compras</a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">Publicar una peticion</a>
+                  <a class="navbar-item">Gestionar peticiones</a>
+                 </div>
+              </div>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Peticiones</a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">Peticiones activas</a>
+                  <a class="navbar-item">Ofertas enviadas</a>
+                 </div>
+              </div>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Ordenes</a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">Órdenes de venta</a>
+                  <a class="navbar-item">Órdenes de compra</a>
+                 </div>
+              </div>
+              <%= link_to 'Ganancias', dashboard_path, class: "navbar-item" %>
+              <%= link_to 'Mensajes', dashboard_path, class: "navbar-item" %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Ajustes</a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">Métodos de pago</a>
+                  <a class="navbar-item">Métodos de retirada</a>
+                 </div>
+              </div>
+          </div>
+        </div>
+      </nav>
+
 <script>
 $(document).ready(function() {
 
