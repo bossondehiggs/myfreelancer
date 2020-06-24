@@ -8,7 +8,7 @@ class Gig < ApplicationRecord
 
 
 
-  accepts_nested_attributes_for :princings
+  accepts_nested_attributes_for :pricings
 
   validates :title, presence: { message: 'no puede estar en blanco' }
 end

@@ -18,6 +18,7 @@ gem 'devise', '=4.7.2'
 
 gem 'omniauth', '=1.9.0'
 gem 'omniauth-facebook', '=5.0.0'
+gem 'faker', '=1.9.3'
 
 
 

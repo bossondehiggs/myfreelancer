@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
   
-  before_action :authenticate_user!, except: [show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_gig, except: [:new, :create]
   before_action :is_authorised, only: [:edit, :update]
   
@@ -14,7 +14,7 @@ class GigsController < ApplicationController
 
     if @gig.save
       @gig.pricings.create(Pricing.pricing_types.values.map{ |x| {pricing_type: x} })
-      redirect_to edit_gig_path(@gig), notice! "Guardando..."
+      redirect_to edit_gig_path(@gig), notice: "Guardando..."
     else
       redirect_to request.referrer, flash: { error: @gig.errors.full_messages }
     end

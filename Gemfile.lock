@@ -85,6 +85,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1-x64-mingw32)
@@ -233,6 +235,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise (= 4.7.2)
+  faker (= 1.9.3)
   jbuilder (~> 2.7)
   omniauth (= 1.9.0)
   omniauth-facebook (= 5.0.0)
