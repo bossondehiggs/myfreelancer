@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 window.Noty = require('noty')
 window.Dropzone = require("dropzone")
+window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel")
 
 $(document).on('turbolinks:load', () => {
     $('.toggle').on('click', (e) => {
