@@ -29,7 +29,7 @@
     
     </div>
             <div class="navbar-end">
-           <a class="navbar-item">Publicar Colaboración</a>
+           <%= link_to 'Publicar colaboración', new_gig_path, class: "navbar-item" %>
            <a class="navbar-item">Ver Colaboraciones</a>
 
         <% if (!user_signed_in?) %>
@@ -74,7 +74,7 @@
           <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Ventas</a>
                 <div class="navbar-dropdown">
-                  <a class="navbar-item">Crear nueva colaboración</a>
+                  <%= link_to 'Crear nueva colaboración', new_gig_path, class: "navbar-item" %>
                  </div>
               </div>
               <div class="navbar-item has-dropdown is-hoverable">
