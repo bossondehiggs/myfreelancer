@@ -4,8 +4,8 @@
     <% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success')%>
     new Noty ({
         type: '<%= type %>',
-        layout: 'topRight',
-        timeout: '3000',
+        layout: 'bottomRight',
+        timeout: '2000',
         theme: 'mint',
         text:  '<%= value %>'
         }).show();

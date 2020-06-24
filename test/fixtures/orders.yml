@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  due_date: 2020-06-24
+  title: MyString
+  amount: 1.5
+  status: 1
+
+two:
+  due_date: 2020-06-24
+  title: MyString
+  amount: 1.5
+  status: 1
