@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "bulma": "^0.9.0",
+    "dropzone": "^5.7.1",
     "jquery": "^3.5.1",
     "noty": "^3.2.0-beta",
     "trix": "1.2.0",

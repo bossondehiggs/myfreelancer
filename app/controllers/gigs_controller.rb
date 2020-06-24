@@ -1,8 +1,9 @@
 class GigsController < ApplicationController
   
+  protect_from_forgery except: [:upload_photo]
   before_action :authenticate_user!, except: [:show]
   before_action :set_gig, except: [:new, :create]
-  before_action :is_authorised, only: [:edit, :update]
+  before_action :is_authorised, only: [:edit, :update, :upload_photo, :delete_photo]
   before_action :set_step, only: [:update, :edit]
   
   def new
@@ -49,26 +50,26 @@ class GigsController < ApplicationController
 
       end
 
-      if @step == 4 && gig.photos.blank?
+      if @step == 4 && @gig.photos.blank?
         return redirect_to request.referrer, flash: {error: "Debes añadir alguna foto a la galería"}
 
       end
 
       if @step == 5 
         @gig.pricings.each do |pricing|
-          if @gig.has_single_pricing && pricing.basico?
+          if @gig.has_single_pricing && !pricing.basico?
             next;
           else
-            if pricing[:title].blank || pricing[:description].blank? || pricing[delivery_time].blank? || pricing[:price].blank?
-              return redirect_to edit_gig_path(gig, step:2), flash: {error: "Precio no válido"}
+            if pricing[:title].blank? || pricing[:description].blank? || pricing[:delivery_time].blank? || pricing[:price].blank?
+              return redirect_to edit_gig_path(@gig, step: 2), flash: {error: "Precio no válido"}
           end
         end
       end
 
       if @gig.description.blank?
-        return redirect_to edit_gig_path(gig, step:3), flash: {error: "La descripción no puede estar en blanco"}
+        return redirect_to edit_gig_path(@gig, step:3), flash: {error: "La descripción no puede estar en blanco"}
       elsif @gig.photos.blank?
-        return redirect_to edit_gig_path(gig, step:4), flash: {error: "Debes añadir alguna foto a la galería"}
+        return redirect_to edit_gig_path(@gig, step:4), flash: {error: "Debes añadir alguna foto a la galería"}
         
 
       end
@@ -92,6 +93,18 @@ class GigsController < ApplicationController
 
 
   def show
+  end
+
+  def upload_photo
+    @gig.photos.attach(params[:file])
+    render json: { success: true }
+  end
+
+  def delete_photo
+    @image = ActiveStorage::Attachment.find(params[:photo_id])
+    @image.purge
+    redirect_to edit_gig_path(@gig, step: 4)
+    
   end
 
   private
