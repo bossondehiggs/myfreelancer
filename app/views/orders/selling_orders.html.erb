@@ -1,41 +1,37 @@
 <section class="section">
     <div class="container">
-        <p class="title">Gestión de Mis Ventas</p>
+        <p class="title">Manage Selling Orders</p>
 
         <table class="table is-fullwidth">
             <thead>
                 <tr>
-                    <th>Fecha</th>
-                    <th>Nombre del comprador</th>
-                    <th>Título</th>
-                    <th>Fecha</th>
-                    <th>Precio</th>
-                    <th>Estado</th>
-                    
+                    <th>Date</th>
+                    <th>Buyer Name</th>
+                    <th>Title</th>
+                    <th>Due Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-            <% if @orders.blank? %>
-            <tr>
-                <td colspan="6" class="has-text-centered"><h1>NO HAY NADA PARA MOSTRAR</h1></td>
-            </tr>
-            <% end %>
-                
+                <% if @orders.blank? %>
+                  <tr>
+                      <td colspan="6" class="has-text-centered"><h1>NOTHING TO SHOW HERE</h1></td>
+                  </tr>
+                <% end %>
                 <% @orders.each do |o| %>
-                <tr>
-                    <td><%= o.created_at.strftime('%d %b %Y') %></td>
-                    <td><%= o.buyer_name%></td>
-                    <td><%= link_to o.title, gig_path(o.gig) %></td>
-                    <td><%= o.due_date.strftime('%d %b %Y')%></td>
-                    <td><%= o.amount%></td>
-                    <td>
-                        <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-success' if o.completado? %> ">
-                         <% o.status.capitalize %>
-                         </span>
-                    </td>
-            
-
-                </tr>
+                    <tr>
+                        <td><%= o.created_at.strftime('%d %b %Y') %></td>
+                        <td><%= o.buyer_name %></td>
+                        <td><%= link_to o.title, gig_path(o.gig) %></td>
+                        <td><%= o.due_date.strftime('%d %b %Y') %></td>
+                        <td><%= o.amount %></td>
+                        <td>
+                            <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-success' if o.completado? %>">
+                                <%= o.status.capitalize %>
+                            </span>
+                        </td>
+                    </tr>
                 <% end %>
             </tbody>
         </table>
