@@ -40,7 +40,7 @@
                     </td>
                     <td>
                         <% if !o.completado? %>
-                                <%= link_to 'Marcar como completado', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden' if o.completed?}" %>  
+                                <%= link_to 'Marcar como completado', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden' if o.completado?}" %>  
                             <% else %>
                                 <a class="button is-small is-outlined is-danger toggle-modal" aria-control="<%= o.id %>">Valorar</a>
                                    <div class="modal" id="<%= o.id %>">
