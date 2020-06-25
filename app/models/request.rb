@@ -4,7 +4,7 @@ class Request < ApplicationRecord
 
   has_one_attached :attachment_file
 
-  validates :title, presence: { message: "cannot be empty" }
-  validates :description, presence: { message: "cannot be empty" }
-  validates :delivery, numericality: { only_integer: true, message: "must be a number" }
+  validates :title, presence: { message: "No puede estar vacío" }
+  validates :description, presence: { message: "No puede estar vacío" }
+  validates :delivery, numericality: { only_integer: true, message: "debe ser un número" }
 end

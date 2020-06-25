@@ -23,12 +23,13 @@ $sides: (top, bottom, left, right);
     margin-top: #{$space}px !important;
     margin-bottom: #{$space}px !important;
   }
+
   .f-#{$space} {
-    font-size: #{$space}px !important; 
-   }
+    font-size: #{$space}px !important;
+  }
 }
 
-.is-horizontal-center{
+.is-horizontal-center {
   justify-content: center;
 }
 
@@ -37,20 +38,19 @@ $sides: (top, bottom, left, right);
 }
 
 .star-review {
-    color: #ffbf00;
-    font-size: 13px;
-    font-weight: 600;
-
+  color: #ffbf00;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .dropzone {
-  border: 2px dashed #0087f7 !important;
+  border: 2px dashed #0087F7 !important;
   border-radius: 5px;
   background: white;
 }
 
 .dropzone .dz-message {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .dropzone .dz-message .note {
@@ -58,5 +58,9 @@ $sides: (top, bottom, left, right);
   font-weight: 200;
   display: block;
   margin-top: 1.4rem;
+}
 
+.form-container {
+  margin-left: 100px;
+  margin-right: 100px;
 }
