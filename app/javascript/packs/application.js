@@ -7,7 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-window.Noty = require('noty')
+require("raty-js")
+
+window.Noty = require("noty")
 window.Dropzone = require("dropzone")
 window.BulmaCarousel = require("bulma-extensions/bulma-carousel/dist/js/bulma-carousel")
 
@@ -18,7 +20,6 @@ $(document).on('turbolinks:load', () => {
         $('#' + e.target.getAttribute('aria-controls')).toggleClass('is-hidden');
     })
 })
-
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
