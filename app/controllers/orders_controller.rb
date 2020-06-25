@@ -22,6 +22,26 @@ def buying_orders
     @orders = current_user.buying_orders
 end
 
+def complete
+    @order = Order.find(params[:id])
+
+   
+        if @order.completado!
+            
+
+            flash[:notice] = "Guardado..."
+
+        else
+            flash[:alert] = "Algo fue mal..."
+
+        end
+
+        redirect_to request.referrer
+    end
+
+
+
+
     private
     def charge(gig, pricing)
         order = gig.orders.new

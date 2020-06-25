@@ -25,11 +25,11 @@
                 <tr>
                     <td><%= o.created_at.strftime('%d %b %Y') %></td>
                     <td><%= o.buyer_name%></td>
-                    <td><%= o.title%></td>
+                    <td><%= link_to o.title, gig_path(o.gig) %></td>
                     <td><%= o.due_date.strftime('%d %b %Y')%></td>
                     <td><%= o.amount%></td>
                     <td>
-                        <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-success' if o.completada? %> ">
+                        <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-success' if o.completado? %> ">
                          <% o.status.capitalize %>
                          </span>
                     </td>

@@ -26,16 +26,16 @@
                 <tr>
                     <td><%= o.created_at.strftime('%d %b %Y') %></td>
                     <td><%= o.seller_name%></td>
-                    <td><%= o.title%></td>
+                    <td><%= link_to o.title, gig_path(o.gig) %></td>
                     <td><%= o.due_date.strftime('%d %b %Y')%></td>
                     <td><%= o.amount%></td>
                     <td>
-                        <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-success' if o.completada? %> ">
-                         <% o.status.capitalize %>
-                         </span>
+                        <span class="tag <%= 'is-warning' if o.procesando? %> <%= 'is-succes' if o.completado? %>">
+                        <%= o.status.capitalize %>
+                        </span>
                     </td>
                     <td>
-                        <%= link_to 'Marcar como completada', nil, class: "button is-small is-primary #{'is-hidden' if o.completada? }" %>
+                        <%= link_to 'Marcar como completada', complete_order_path(o), method: :put, class: "button is-small is-primary #{'is-hidden' if o.completado? }" %>
                     </td>
 
                 </tr>
