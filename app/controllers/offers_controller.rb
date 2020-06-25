@@ -7,17 +7,17 @@ class OffersController < ApplicationController
         req = Request.find(offer_params[:request_id])
 
         if req && req.user_id == current_user.id
-            redirect_to request.referrer, alert: "No puedes hacer una oferta para tu propia petición"
+            redirect_to request.referrer, alert: "You cannot offer your own request"
         end
 
         if Offer.exists?(user_id: current_user.id, request_id: offer_params[:request_id])
-            redirect_to request.referrer, alert: "Solo puedes hacer una oferta por el momento"
+            redirect_to request.referrer, alert: "You can make only one offer at the moment"
         end
 
         @offer = current_user.offers.build(offer_params)
         if @offer.save
             # redirect_to request.referrer, notice: "Saved..."
-            redirect_to my_offers_path, notice: "Guardado..."
+            redirect_to my_offers_path, notice: "Saved..."
         else
             redirect_to request.referrer, flash: {error: @offer.errors.full_messages.join(', ')}
         end
@@ -25,23 +25,23 @@ class OffersController < ApplicationController
     end
 
     def accept
-        if @offer.pendiente?
-            @offer.aceptado!
+        if @offer.pending?
+            @offer.accepted!
 
             if charge(@offer.request, @offer)
-                flash[:notice] = "Aceptado..."
+                flash[:notice] = "Accepted..."
                 return redirect_to buying_orders_path
             else
-                flash[:alert] = "No se pudo crear tu orden"
+                flash[:alert] = "cannot create your order"
             end
         end
         redirect_to request.referrer
     end
 
     def reject
-        if @offer.pendiente?
-            @offer.rechazado!
-            flash[:notice] = "Rechazado..."
+        if @offer.pending?
+            @offer.rejected!
+            flash[:notice] = "Rejected..."
         end
         redirect_to request.referrer
     end
@@ -65,7 +65,7 @@ class OffersController < ApplicationController
     end
 
     def is_authorised
-        redirect_to root_path, alert: "No tienes permiso" unless current_user.id == @offer.request.user_id
+        redirect_to root_path, alert: "You don't have permission" unless current_user.id == @offer.request.user_id
     end
 
     def offer_params
