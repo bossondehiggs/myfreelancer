@@ -10,14 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require bulma
  *= require_tree .
  *= require_self
  */
-@import 'bulma';
-@import 'bulma-extensions';
-@import 'bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min';
-@import 'noty/lib/noty';
-@import 'noty/lib/themes/mint';
-@import 'dropzone/dist/basic.css';
-@import 'dorpzone/dist/dropzone.css'
+ @import 'bulma';
+ @import 'bulma-extensions';
+ @import 'bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min';
+ @import 'noty/lib/noty';
+ @import 'noty/lib/themes/sunset';
+ @import 'dropzone/dist/basic.css';
+ @import 'dropzone/dist/dropzone.css';
