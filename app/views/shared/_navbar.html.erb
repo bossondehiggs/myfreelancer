@@ -90,8 +90,9 @@
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Ordenes</a>
                 <div class="navbar-dropdown">
-                  <a class="navbar-item">Órdenes de venta</a>
-                  <a class="navbar-item">Órdenes de compra</a>
+                <%= link_to 'Ventas', selling_orders_path, class: "navbar-item" %>
+                <%= link_to 'Compras', buying_orders_path, class: "navbar-item" %>
+                  
                  </div>
               </div>
               <%= link_to 'Ganancias', dashboard_path, class: "navbar-item" %>
